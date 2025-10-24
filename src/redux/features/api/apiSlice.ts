@@ -4,8 +4,7 @@ import TagTypes from "../../../constant/tagType.constant.ts";
 import { getToken } from "../../../helper/SessionHelper.ts";
 import { ErrorToast } from "../../../helper/ValidationHelper.ts";
 
-//const baseUrl = "http://localhost:9090/api/v1"
-const baseUrl = "https://triplem-backend-goni.vercel.app/api/v1"
+const baseUrl = import.meta.env.VITE_API_URL;
 
 
 const baseQuery = fetchBaseQuery({

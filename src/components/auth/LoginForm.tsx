@@ -19,8 +19,8 @@ const LoginForm = () => {
   const { handleSubmit, control } = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "superadminnn@gmail.com",
-      password: "superadmin123@"
+      email: import.meta.env.VITE_SUPER_ADMIN_EMAIL,
+      password: import.meta.env.VITE_SUPER_ADMIN_PASSWORD
     }
   });
 

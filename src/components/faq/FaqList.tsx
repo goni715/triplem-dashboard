@@ -38,14 +38,13 @@ const FaqList = () => {
   if (!isLoading && faqs?.length > 0) {
     return (
       <>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[60vh] overflow-y-scroll content-start relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[60vh] max-h-[60vh] overflow-y-scroll content-start relative">
           {faqs?.map((faq, index) => (
             <FaqItem faq={faq} key={index} serial={Number(index + 1) + (meta.page - 1) * pageSize} />
           ))}
            {!isLoading && isFetching && <TableOverlayLoading />}
         </div>
-        <div className="mt-8 text-center flex justify-center items-center">
-          <div className="fixed bottom-12">
+        <div className="mt-16 text-center flex justify-center items-center">
             {meta?.totalPages > 1 && (
               <Pagination
                 onChange={handlePagination}
@@ -54,7 +53,6 @@ const FaqList = () => {
                 total={meta?.total}
               />
             )}
-          </div>
         </div>
       </>
     )

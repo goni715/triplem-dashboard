@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Trash2 } from "lucide-react";
 import { useDeleteAdminMutation } from "../../../redux/features/admin/adminApi";
 import DeleteButton from "../../form/DeleteButton";
+import { WarningToast } from "../../../helper/ValidationHelper";
 
 type TProps = {
   userId: string;
@@ -28,7 +29,10 @@ const DeleteAdminModal = ({ userId }: TProps) => {
   return (
     <>
       <button
-        onClick={() => setModalOpen(true)}
+        onClick={() => {
+           WarningToast("You are not allowed to delete this admin right now.");
+          //setModalOpen(true)
+        }}
         className="bg-red-600 hover:bg-red-700 p-2 text-white rounded-full"
       >
         <Trash2 size={18} />
